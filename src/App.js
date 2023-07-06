@@ -1,5 +1,12 @@
 import './App.css';
 
+const initialItems = [
+  { id: 1, description: "Passports", quantity: 2, packed: false },
+  { id: 2, description: "Socks", quantity: 12, packed: false },
+];
+
+
+
 export default function App() {
   return (
     <div className="App">
@@ -15,7 +22,7 @@ export default function App() {
 function Logo(){
 // to get emoji windows + .
 return(
-  <h1>🌴  Far Away 👜💼</h1>
+  <h1>🌴  Far Away 💼</h1>
 )
 }
 
@@ -33,8 +40,8 @@ function PackingList(){
 
 function Stat(){
   return(
-     <footer>
-      <em>You have X items on your list, and you already packed X (x%)</em>
+     <footer className='stats'>
+      <em>👜 You have X items on your list, and you already packed X (x%)</em>
      </footer>
   )
 }
