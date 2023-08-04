@@ -37,15 +37,17 @@ function Form(){
 function PackingList(){
   return(
     // to render list, we use the map method on the array
-    <ul className='list'>
+    <div className='list'>
+      <ul>
       {initialItems.map((item) => {
         <Item item={item} key={initialItems.id}/>
       })}
     </ul>
-  )
+    </div>
+  );
 }
 
-function Item(){
+function Item({item}){
   return(
     <li>
       <span>{Item.description}</span>
