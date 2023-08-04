@@ -9,7 +9,7 @@ const initialItems = [
 
 export default function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Logo/>
       <Form/>
       <PackingList/>
@@ -27,14 +27,29 @@ return(
 }
 
 function Form(){
-  <div className='add-form'>
-    <h3>What do you need for your trip?</h3>
-  </div>
+  return(
+    <div className='add-form'>
+      <h3>What do you need for your trip?</h3>
+    </div>
+  );
 }
 
 function PackingList(){
   return(
-    <div className='list'>LIST</div>
+    // to render list, we use the map method on the array
+    <ul className='list'>
+      {initialItems.map((item) => {
+        <Item item={item} key={initialItems.id}/>
+      })}
+    </ul>
+  )
+}
+
+function Item(){
+  return(
+    <li>
+      <span>{Item.description}</span>
+    </li>
   )
 }
 
@@ -43,5 +58,5 @@ function Stat(){
      <footer className='stats'>
       <em>👜 You have X items on your list, and you already packed X (x%)</em>
      </footer>
-  )
+  );
 }
