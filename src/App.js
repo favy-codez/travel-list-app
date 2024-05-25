@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 
 const initialItems = [
@@ -23,10 +24,26 @@ function Logo() {
 }
 
 function Form() {
+  const [description, setDescription] = useState("");
+  const [quantity, setQuantity] = useState("");
+
+  function handleSubmit(e) {
+    // we use this to prevent the page from reloading anytime we press enter
+    e.preventDefault();
+    console.log(e);
+  }
+
   return (
-    <form className="add-form">
+    // the handleSubmit on the form will work when will enter the the input tag and when we click on
+    // the add button but when we add the event listener to the button, it only works when we click the button
+    <form className="add-form" onClick={handleSubmit}>
+      {/* OR  <form className="add-form" onClick={e => handleSubmit(e)}> we can also decide to
+      use onClick event, which works only on the button, while thsi works on the button and input text field*/}
       <h3>What do you need for your trip?</h3>
-      <select>
+      <select
+        value={quantity}
+        onChange={(e) => setQuantity(Number(e.target.value))}
+      >
         {/* <option value={1}>1</option>
         <option value={2}>2</option>
         <option value={3}>3</option> */}
@@ -36,7 +53,17 @@ function Form() {
           </option>
         ))}
       </select>
-      <input type="text" placeholder="Item..." />
+      {/* we need to connect the state with the value, we are going to type. since we set our state to an empty
+      string, the state will always be empty even if we write smt in our input tag or not becasue react is now
+      controlling it and always setting it to description, which stays at the empty string. so we listen for 
+      the change event using onChange prop */}
+      <input
+        type="text"
+        placeholder="Item..."
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        // e.target is the whole input tag, while value is the value of the input tag
+      />
       <button>Add</button>
     </form>
   );
