@@ -25,12 +25,30 @@ function Logo() {
 
 function Form() {
   const [description, setDescription] = useState("");
-  const [quantity, setQuantity] = useState("");
+  const [quantity, setQuantity] = useState(1);
+  const [items, setItems] = useState([]);
+
+  function handleAddItems(item){
+    setItems((items) => [...items, item])
+  }
 
   function handleSubmit(e) {
     // we use this to prevent the page from reloading anytime we press enter
     e.preventDefault();
     console.log(e);
+
+    // if description is empty, i want nothing to happen
+    if (!description) return;
+
+    const newItem = { description, quantity, packed: false, id: Date.now() };
+    console.log(newItem);
+
+    handleAddItems(newItem);
+
+    // we want the form to go back to its default state after submission
+    // we simple use our setter functions, since react is in charge
+    setDescription("");
+    setQuantity(1);
   }
 
   return (
