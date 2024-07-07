@@ -127,7 +127,7 @@ function Stat({ items }) {
   return (
     <footer className="stats">
       <em>
-        👜 You have {totalItems} items on your list, and you already packed{" "}
+        👜 Youu have {totalItems} items on your list, and you already packed{" "}
         {packedItems} ({Math.round(packedPercentage)}%)
       </em>
     </footer>
