@@ -92,3 +92,4 @@ function Form() {
 | Updating state cause components to re-render  | Props are read-only and cannot be modified  by the component recieving them | 
 | State can be updated by the component itself | When the child components recieves new updated props, it causes components to re-render, usually when the parent component has been updated.  | 
 | Used to make a component interactive  | Props are used to give the parent component the ability to configure their child component  | 
+- By lifting state up - we have sucessfully shared one piece of state with multiple components in different position in the components tree.
