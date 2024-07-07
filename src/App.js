@@ -130,6 +130,6 @@ function Stat({ items }) {
         👜 You have {totalItems} items on your list, and you already packed{" "}
         {packedItems} ({Math.round(packedPercentage)}%)
       </em>
-    </footer>
+    </footer>kkkkkkkkkkkkkkkkkkk
   );
 }
